@@ -80,30 +80,6 @@ export default function HeroCarousel() {
   return (
     <div className="min-h-screen bg-[#020202] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-pink-500/30">
       
-      {/* Editorial Pagination Indicator */}
-      <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="absolute top-8 left-8 md:top-12 md:left-12 flex items-center space-x-3 font-mono text-xs tracking-widest z-50 uppercase text-gray-500"
-      >
-        <span className="w-8 h-[1px] bg-gray-600 block" />
-        <div className="flex items-center space-x-2">
-          <AnimatePresence mode="popLayout">
-            <motion.span
-              key={currentIndex}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              className="text-white font-medium"
-            >
-              0{currentIndex + 1}
-            </motion.span>
-          </AnimatePresence>
-          <span>/</span>
-          <span>0{categories.length}</span>
-        </div>
-      </motion.div>
 
       {/* Dynamic Background Mesh Glow */}
       <motion.div 
