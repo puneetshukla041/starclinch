@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const categories = [
-  { id: 0, title: "Singers", image: "/home/image1.webp" },
+  { id: 0, title: "Singers", image: "/home/image3.webp" },
   { id: 1, title: "Dancers", image: "/home/image2.webp" },
-  { id: 2, title: "Comedians", image: "/home/image3.webp" },
+  { id: 2, title: "Comedians", image: "/home/image1.webp" },
 ];
 
 // 1. Magnetic Hover Component (Unchanged, already perfect)
