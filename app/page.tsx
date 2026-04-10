@@ -3,6 +3,7 @@ import Trending from "@/components/trending";
 import Active from "@/components/active";
 import Squad from "@/components/squad";
 import Recent from "@/components/recent";
+import Join from "@/components/join";
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <Active/>
       <Squad />
       <Recent />
+      <Join />
     </>
   );
 }
