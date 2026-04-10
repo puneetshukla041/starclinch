@@ -124,7 +124,6 @@ export default function HeroCarousel() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          // Wrap circle AND description in a flex column to fix the overlap bug
           className="flex flex-col items-center flex-shrink-0 order-1 md:order-2 z-10 w-full md:w-auto"
         >
           {/* Circle Container */}
@@ -140,9 +139,9 @@ export default function HeroCarousel() {
               className="absolute inset-[-25%] rounded-full bg-gradient-to-tr from-orange-600/30 via-rose-600/40 to-purple-600/30 blur-[40px] sm:blur-[60px] md:blur-[80px] -z-10"
             />
 
-            {/* Infinite Swoosh Arrow */}
+            {/* THE FIX: Changed to positive 120 so the arrow spins towards the RIGHT (Clockwise) */}
             <motion.div
-              animate={{ rotate: page * -120 }} 
+              animate={{ rotate: page * 120 }} 
               transition={{ type: "spring", stiffness: 45, damping: 14 }}
               className="absolute inset-[-12%] sm:inset-[-15%]"
             >
