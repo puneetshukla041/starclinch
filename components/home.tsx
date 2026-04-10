@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -47,6 +47,17 @@ export default function HeroCarousel() {
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
+
+  // --- NEW: Auto-rotation every 2.5 seconds ---
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1); // Move forward by 1
+    }, 3000);
+
+    // Clear the interval when the component unmounts or when the page changes manually
+    return () => clearInterval(timer);
+  }, [page]);
+  // -------------------------------------------
 
   // Custom variants for the curved text wipe
   const textVariants = {
@@ -139,7 +150,6 @@ export default function HeroCarousel() {
               className="absolute inset-[-25%] rounded-full bg-gradient-to-tr from-orange-600/30 via-rose-600/40 to-purple-600/30 blur-[40px] sm:blur-[60px] md:blur-[80px] -z-10"
             />
 
-            {/* THE FIX: Changed to positive 120 so the arrow spins towards the RIGHT (Clockwise) */}
             <motion.div
               animate={{ rotate: page * 120 }} 
               transition={{ type: "spring", stiffness: 45, damping: 14 }}
