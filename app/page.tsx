@@ -1,19 +1,21 @@
-import Home from "@/components/home";
-import Trending from "@/components/trending";
-import Active from "@/components/active";
-import Squad from "@/components/squad";
-import Recent from "@/components/recent";
-import Join from "@/components/join";
+import {
+  HeroSection,
+  TrendingSection,
+  FeaturedSquadsSection,
+  SquadCarouselSection,
+  RecentShowsSection,
+  TeamSection,
+} from "@/components";
 
 export default function Page() {
   return (
-    <>
-      <Home />
-      <Trending />
-      <Active/>
-      <Squad />
-      <Recent />
-      <Join />
-    </>
+    <main>
+      <HeroSection />
+      <TrendingSection />
+      <FeaturedSquadsSection />
+      <SquadCarouselSection />
+      <RecentShowsSection />
+      <TeamSection />
+    </main>
   );
 }

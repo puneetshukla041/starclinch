@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Or whatever font you are using
+import { Inter } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
-import Header from "@/components/Header";
+import { Header } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
