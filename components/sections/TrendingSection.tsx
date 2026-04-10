@@ -30,16 +30,16 @@ export default function TrendingSection() {
   return (
     <section className="relative w-full bg-[#050505] py-20 sm:py-32 overflow-hidden min-h-screen flex flex-col items-center">
       
-      {/* Cinematic Background Arc */}
+      {}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200vw] md:w-[120vw] lg:w-[90vw] aspect-square rounded-full border-[1px] border-rose-500/10 bg-gradient-to-b from-rose-950/5 to-transparent pointer-events-none z-0" />
 
-      {/* Premium Noise Overlay */}
+      {}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen z-0"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* UPDATED: Subtle Fading White Framing Arc - Adjusted position and mask */}
+      {}
       <div 
         className="absolute top-[10%] sm:top-[5%] left-1/2 -translate-x-1/2 w-[160vw] md:w-[140vw] lg:w-[1600px] aspect-square rounded-full border-[1px] border-white/30 pointer-events-none z-0"
         style={{
@@ -50,7 +50,7 @@ export default function TrendingSection() {
 
       <div className="w-full max-w-[1200px] mx-auto px-5 sm:px-6 relative z-10 flex flex-col items-center">
         
-        {/* UI/UX Contextual Header */}
+        {}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function TrendingSection() {
           </h2>
         </motion.div>
 
-        {/* Floating Pill Toggle */}
+        {}
         <div className="relative flex bg-[#111113] p-1.5 rounded-full mb-12 sm:mb-16 border border-white/5 shadow-2xl">
           {["Photos", "Videos"].map((tab) => (
             <button 
@@ -84,7 +84,7 @@ export default function TrendingSection() {
           ))}
         </div>
 
-        {/* Premium Image Grid */}
+        {}
         <motion.div 
           key={activePage}
           initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
@@ -104,7 +104,7 @@ export default function TrendingSection() {
                   isCircle ? "rounded-full border-white/10" : "rounded-3xl sm:rounded-[2rem] border-white/5"
                 }`}
               >
-                {/* Image with smooth scale */}
+                {}
                 <motion.div 
                   className="w-full h-full relative"
                   variants={{
@@ -122,17 +122,17 @@ export default function TrendingSection() {
                   />
                 </motion.div>
                 
-                {/* Permanent Gradient Overlay */}
+                {}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 ease-out z-10" />
                 
-                {/* Responsive Padding - Slightly reduced to match smaller text */}
+                {}
                 <div className={`absolute inset-x-0 bottom-0 flex flex-col justify-end z-20 transition-transform duration-500 ease-out group-hover:-translate-y-1 ${
                   isCircle 
                     ? "px-4 pb-5 sm:px-6 sm:pb-10 lg:pb-12 items-center text-center" 
                     : "p-4 sm:p-5 lg:p-6 items-start text-left"
                 }`}>
                   
-                  {/* Category & Icon Row */}
+                  {}
                   <div className={`flex items-center mb-1 sm:mb-1.5 ${isCircle ? "justify-center gap-1.5" : "justify-between w-full"}`}>
                     <p className="text-rose-400 font-semibold tracking-wide text-[8px] sm:text-[9px] md:text-[10px] uppercase">
                       {artist.category}
@@ -142,12 +142,12 @@ export default function TrendingSection() {
                     </div>
                   </div>
 
-                  {/* Name Text - Scaled down */}
+                  {}
                   <h3 className="text-white text-sm sm:text-base md:text-lg font-medium tracking-tight mb-0.5 line-clamp-1">
                     {artist.name}
                   </h3>
                   
-                  {/* Stats Text - Scaled down */}
+                  {}
                   <p className="text-neutral-400 text-[8px] sm:text-[9px] md:text-xs font-light opacity-90 line-clamp-1">
                     {artist.stats}
                   </p>
@@ -158,7 +158,7 @@ export default function TrendingSection() {
           })}
         </motion.div>
 
-        {/* Dynamic Pagination Dashes */}
+        {}
         <div className="flex items-center justify-center gap-2.5 sm:gap-3 mt-16 sm:mt-20">
           {[0, 1, 2, 3].map((pageIdx) => (
             <button

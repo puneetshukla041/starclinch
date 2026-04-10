@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 
-// Exact data mapped to your local image paths and text styling
+
 const SHOWS_DATA = [
   {
     id: 1,
@@ -38,17 +38,17 @@ export default function RecentShowsSection() {
   const controls = useAnimation();
   const trackRef = useRef<HTMLDivElement>(null);
   
-  // To handle continuous smooth sliding without fading
+  
   const slideTo = async (index: number) => {
     let newIndex = index;
-    // Handle wrap around smoothly
+    
     if (newIndex < 0) newIndex = SHOWS_DATA.length - 1;
     if (newIndex >= SHOWS_DATA.length) newIndex = 0;
     
     setActiveIndex(newIndex);
     
-    // Animate the entire track left or right
-    // Using percentages based on the number of items
+    
+    
     await controls.start({
       x: `-${newIndex * 100}%`,
       transition: { 
@@ -63,9 +63,9 @@ export default function RecentShowsSection() {
   return (
     <section className="relative w-full min-h-[100svh] bg-[#030303] overflow-hidden flex flex-col items-center justify-center py-20 md:py-32 font-sans selection:bg-white/20">
       
-      {/* --- Infinite Scrolling Corner Banners (Premium Dark Mode) --- */}
+      {}
       
-      {/* Top Left Banner */}
+      {}
       <div className="absolute top-[5%] sm:top-[10%] left-[-30%] sm:left-[-15%] w-[150vw] sm:w-[100vw] origin-center -rotate-[35deg] bg-gradient-to-r from-transparent via-[#0f0f0f] to-transparent border-y border-white/5 py-2.5 z-0">
         <motion.div 
           className="flex whitespace-nowrap text-[10px] sm:text-[11px] tracking-[0.3em] text-white/30 font-medium uppercase"
@@ -78,7 +78,7 @@ export default function RecentShowsSection() {
         </motion.div>
       </div>
 
-      {/* Bottom Right Banner */}
+      {}
       <div className="absolute bottom-[5%] sm:bottom-[10%] right-[-30%] sm:right-[-15%] w-[150vw] sm:w-[100vw] origin-center -rotate-[35deg] bg-gradient-to-r from-transparent via-[#0f0f0f] to-transparent border-y border-white/5 py-2.5 z-0">
         <motion.div 
           className="flex whitespace-nowrap text-[10px] sm:text-[11px] tracking-[0.3em] text-white/30 font-medium uppercase"
@@ -91,10 +91,10 @@ export default function RecentShowsSection() {
         </motion.div>
       </div>
 
-      {/* Main Content Container */}
+      {}
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         
-        {/* Main Header (Refined typography) */}
+        {}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,10 +108,10 @@ export default function RecentShowsSection() {
           </h2>
         </motion.div>
 
-        {/* Carousel Block */}
+        {}
         <div className="relative w-full max-w-[1000px] flex items-center justify-between gap-2 sm:gap-6 lg:gap-10">
           
-          {/* Previous Button */}
+          {}
           <button 
             onClick={() => slideTo(activeIndex - 1)}
             className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#111111]/90 backdrop-blur-xl hover:bg-white hover:text-black border border-white/10 flex items-center justify-center text-white/60 transition-all duration-400 z-20 cursor-pointer shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:scale-105 active:scale-95 group"
@@ -120,9 +120,9 @@ export default function RecentShowsSection() {
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 -ml-0.5 transition-transform group-hover:-translate-x-0.5" />
           </button>
 
-          {/* Center Content Area - THE TRACK */}
+          {}
           <div className="relative w-full flex-1 overflow-hidden rounded-3xl min-h-[450px] sm:min-h-[500px]">
-            {/* The sliding track holding all items horizontally */}
+            {}
             <motion.div 
               ref={trackRef}
               animate={controls}
@@ -135,13 +135,13 @@ export default function RecentShowsSection() {
                 return (
                   <div 
                     key={show.id}
-                    // Each item takes exactly 100% of the container width
+                    
                     className="w-full h-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 px-2 sm:px-4"
                   >
                     
-                    {/* Left: Arched Image */}
+                    {}
                     <motion.div 
-                      // Subtle scale effect when active vs inactive
+                      
                       animate={{ 
                         scale: isCurrent ? 1 : 0.9,
                         opacity: isCurrent ? 1 : 0.4 
@@ -149,10 +149,10 @@ export default function RecentShowsSection() {
                       transition={{ duration: 0.6, ease: "easeOut" }}
                       className="relative w-[240px] h-[300px] sm:w-[320px] sm:h-[400px] md:w-[360px] md:h-[460px] shrink-0 group"
                     >
-                      {/* Subtle dynamic background glow */}
+                      {}
                       <div className={`absolute inset-0 rounded-[200px_200px_24px_24px] bg-white/5 blur-[50px] transform scale-110 transition-opacity duration-700 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
                       
-                      {/* Image container with the exact Arch shape */}
+                      {}
                       <div className="relative w-full h-full rounded-[200px_200px_24px_24px] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] bg-[#111]">
                         <Image
                           src={show.image}
@@ -162,12 +162,12 @@ export default function RecentShowsSection() {
                           sizes="(max-width: 768px) 320px, 380px"
                           priority={isCurrent}
                         />
-                        {/* Bottom gradient fade for text readability if needed */}
+                        {}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/90 via-transparent to-transparent opacity-60" />
                       </div>
                     </motion.div>
 
-                    {/* Right: Text Content */}
+                    {}
                     <motion.div 
                       animate={{ 
                         x: isCurrent ? 0 : 40,
@@ -194,7 +194,7 @@ export default function RecentShowsSection() {
             </motion.div>
           </div>
 
-          {/* Next Button */}
+          {}
           <button 
             onClick={() => slideTo(activeIndex + 1)}
             className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#111111]/90 backdrop-blur-xl hover:bg-white hover:text-black border border-white/10 flex items-center justify-center text-white/60 transition-all duration-400 z-20 cursor-pointer shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:scale-105 active:scale-95 group"

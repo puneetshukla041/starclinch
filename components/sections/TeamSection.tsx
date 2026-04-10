@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { Inter, Caveat } from 'next/font/google';
 import { motion } from 'framer-motion';
 
-// Initialize fonts
+
 const inter = Inter({ subsets: ['latin'] });
 const caveat = Caveat({ subsets: ['latin'], weight: '700' });
 
-// Tag data with exact rotations and positions
+
 const bottomTags = [
   { text: 'Focused', rotate: -10, yOffset: 10 },
   { text: 'Collaborative', rotate: -5, yOffset: 5 },
@@ -19,22 +19,22 @@ const bottomTags = [
 ];
 
 export default function TeamSection() {
-  // State to track if the "Join our team" button is being hovered
+  
   const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   return (
     <section className={`relative min-h-[90vh] bg-[#0a060d] flex items-center justify-center overflow-hidden ${inter.className} py-20`}>
       
-      {/* Background Radial Glows */}
-      {/* Left Glow */}
+      {}
+      {}
       <div className="absolute -bottom-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full bg-[radial-gradient(circle,_rgba(102,28,68,0.4)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none blur-[60px]" />
-      {/* Right Glow */}
+      {}
       <div className="absolute -top-[10%] -right-[5%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full bg-[radial-gradient(circle,_rgba(128,35,85,0.3)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none blur-[60px]" />
 
-      {/* Main Glassmorphism Container */}
+      {}
       <div className="relative w-[92%] max-w-[1100px] aspect-auto min-h-[450px] md:min-h-[500px] my-10 rounded-[3rem] md:rounded-[120px] border border-white/10 bg-white/[0.03] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] backdrop-blur-2xl flex flex-col items-center justify-center text-center px-4 pt-24 pb-32 sm:p-8 md:p-12 z-10">
         
-        {/* Floating Top Tag: Fun */}
+        {}
         <motion.div 
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -43,7 +43,7 @@ export default function TeamSection() {
           Fun
         </motion.div>
 
-        {/* Floating Top Tag: Inclusive */}
+        {}
         <motion.div 
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -52,10 +52,10 @@ export default function TeamSection() {
           Inclusive
         </motion.div>
 
-        {/* Text Content Wrapper */}
+        {}
         <div className="relative flex flex-col items-center justify-center mt-4 md:mt-0 z-30 w-full">
           
-          {/* Handwritten Text and Curved Arrow - Animated via state */}
+          {}
           <motion.div 
             animate={{ 
               rotate: isButtonHovered ? -14 : -10, 
@@ -68,7 +68,7 @@ export default function TeamSection() {
             <span className={`${caveat.className} text-[#f0567e] text-2xl md:text-3xl lg:text-4xl mr-2 whitespace-nowrap tracking-wide`}>
               We are the team of
             </span>
-            {/* Custom SVG Arrow mimicking the design */}
+            {}
             <svg 
               width="35" 
               height="35" 
@@ -88,19 +88,19 @@ export default function TeamSection() {
             </svg>
           </motion.div>
 
-          {/* Main Heading */}
+          {}
           <h1 className="text-4xl sm:text-5xl md:text-[64px] font-medium text-white tracking-tight leading-tight md:leading-none z-10 w-full px-2">
             20+Talented Folks
           </h1>
           
-          {/* Description */}
+          {}
           <p className="mt-5 md:mt-6 text-[#a1a1aa] max-w-[90%] md:max-w-lg leading-relaxed text-sm md:text-[15px] z-10 font-light">
             From passion-driven dedication to impactful contribution,<br className="hidden md:block" />
             we do it all here. We are growing and will be excited to hear<br className="hidden md:block" />
             from you !
           </p>
 
-          {/* Call to Action Button */}
+          {}
           <button 
             onMouseEnter={() => setIsButtonHovered(true)}
             onMouseLeave={() => setIsButtonHovered(false)}
@@ -113,7 +113,7 @@ export default function TeamSection() {
           </button>
         </div>
 
-        {/* Scattered Bottom Hover Tags */}
+        {}
         <div className="absolute bottom-6 md:bottom-8 left-0 right-0 mx-auto w-full max-w-[95%] md:max-w-[800px] flex justify-center items-end flex-wrap md:flex-nowrap gap-2 md:gap-4 px-4 z-20 pointer-events-none">
           {bottomTags.map((tag, index) => (
             <motion.div 

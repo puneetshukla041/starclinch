@@ -11,7 +11,7 @@ const categories = [
   { id: 2, title: "Comedians", image: "/home/image1.webp", description: "Stand-up comedy & endless laughs" },
 ];
 
-// Magnetic Hover Component
+
 function MagneticWrapper({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -88,7 +88,7 @@ export default function HeroCarousel() {
   return (
     <div className="h-[100svh] bg-[#050505] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-rose-500/30 w-full">
       
-      {/* Cinematic Background Gradient */}
+      {}
       <motion.div 
         key={`bg-${normalizedIndex}`}
         initial={{ opacity: 0 }}
@@ -97,18 +97,18 @@ export default function HeroCarousel() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-950/20 via-[#0A0A0B] to-[#050505] pointer-events-none"
       />
 
-      {/* Premium Noise Overlay */}
+      {}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* Main Container - Adjusted gaps and padding for mobile */}
+      {}
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-6 md:py-0 flex flex-col md:flex-row items-center justify-center md:justify-between w-full h-full relative z-10 gap-4 sm:gap-8 md:gap-4 lg:gap-8">
         
-        {/* Left Side: Curved Text Animation */}
+        {}
         <div className="w-full md:w-1/3 flex justify-center md:justify-start order-2 md:order-1 z-50 pointer-events-none">
-          {/* Reduced height on mobile to prevent pushing content down */}
+          {}
           <div className="relative w-full h-[50px] sm:h-[80px] md:h-[200px] flex items-center justify-center md:justify-start">
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.h1
@@ -127,16 +127,16 @@ export default function HeroCarousel() {
           </div>
         </div>
 
-        {/* Center: Premium Carousel & Description Wrapper */}
+        {}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center flex-shrink-0 order-1 md:order-2 z-10 w-full md:w-auto mt-2 md:mt-0"
         >
-          {/* Circle Container - slightly scaled down on mobile */}
+          {}
           <div className="relative aspect-square w-[55vw] sm:w-[45vw] md:w-[42vw] lg:w-[32vw] max-w-[240px] sm:max-w-[320px] lg:max-w-[460px]">
-            {/* Dynamic Pulsating Halo */}
+            {}
             <motion.div
               animate={{ 
                 scale: [1, 1.05, 1], 
@@ -182,10 +182,10 @@ export default function HeroCarousel() {
               </svg>
             </motion.div>
 
-            {/* "Dip to Pink" Video Transition */}
+            {}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-500 to-orange-500 shadow-[0_0_50px_rgba(0,0,0,0.8)]" />
 
-            {/* Images Container */}
+            {}
             <div className="absolute inset-0 rounded-full overflow-hidden cursor-grab active:cursor-grabbing border border-white/5 shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -219,7 +219,7 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* Reduced margin top to fit mobile viewport */}
+          {}
           <div className="h-6 mt-4 sm:mt-8 flex items-center justify-center w-full relative z-20">
             <AnimatePresence mode="wait">
               <motion.div
@@ -240,14 +240,14 @@ export default function HeroCarousel() {
           </div>
         </motion.div>
 
-        {/* Right Side: Static Info & Magnetic Call to Action */}
+        {}
         <motion.div 
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           className="w-full md:w-1/3 flex flex-col items-center md:items-end text-center md:text-right space-y-3 sm:space-y-6 order-3 z-50 mt-2 md:mt-0"
         >
-          {/* Scaled down text on mobile */}
+          {}
           <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-light text-gray-400 leading-tight">
             Choose <br className="hidden md:block" />
             from <span className="font-semibold text-white">100+</span> <br className="hidden md:block" />

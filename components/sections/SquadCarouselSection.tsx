@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
-// --- Next-Level Premium Copywriting ---
+
 const SQUADS_DATA = [
   {
     id: 1,
@@ -44,59 +44,59 @@ export default function SquadCarouselSection() {
     setCurrentIndex((prev) => (prev - 1 + SQUADS_DATA.length) % SQUADS_DATA.length);
   };
 
-  // Helper function to calculate position & 3D rotation on the curved path
+  
   const getCardStyles = (index: number) => {
     const total = SQUADS_DATA.length;
     let relativeIndex = index - currentIndex;
     if (relativeIndex < -1) relativeIndex += total;
     if (relativeIndex > 1) relativeIndex -= total;
 
-    // Center active card
+    
     if (relativeIndex === 0) {
       return {
         x: "0%",
         y: 0,
         scale: 1,
-        rotateY: 0, // Facing straight forward
+        rotateY: 0, 
         opacity: 1,
         zIndex: 30,
         borderRadius: "24px",
         filter: "brightness(1) grayscale(0%)",
       };
     } 
-    // Left card
+    
     else if (relativeIndex === -1 || (relativeIndex < 0 && total === 2)) {
       return {
         x: "-125%",
         y: 80, 
         scale: 0.65,
-        rotateY: 35, // NEW: Rotates inward toward the center
+        rotateY: 35, 
         opacity: 0.5,
         zIndex: 20,
         borderRadius: "9999px",
         filter: "brightness(0.6) grayscale(40%)",
       };
     } 
-    // Right card
+    
     else if (relativeIndex === 1 || (relativeIndex > 0 && total === 2)) {
       return {
         x: "125%",
         y: 80, 
         scale: 0.65,
-        rotateY: -35, // NEW: Rotates inward toward the center
+        rotateY: -35, 
         opacity: 0.5,
         zIndex: 20,
         borderRadius: "9999px",
         filter: "brightness(0.6) grayscale(40%)",
       };
     } 
-    // Hidden cards
+    
     else {
       return {
         x: relativeIndex < 0 ? "-200%" : "200%",
         y: 150,
         scale: 0.4,
-        rotateY: relativeIndex < 0 ? 60 : -60, // Deep rotation for hidden items
+        rotateY: relativeIndex < 0 ? 60 : -60, 
         opacity: 0,
         zIndex: 10,
         borderRadius: "9999px",
@@ -108,16 +108,16 @@ export default function SquadCarouselSection() {
   return (
     <section className="relative w-full bg-[#050505] py-24 md:py-32 overflow-hidden min-h-[90vh] flex flex-col items-center selection:bg-emerald-500/30">
       
-      {/* Premium Noise Overlay for Texture */}
+      {}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen z-0"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* Elegant Faint Background Arc */}
+      {}
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[180vw] md:w-[120vw] lg:w-[1400px] aspect-square rounded-full border-[1px] border-white/[0.04] pointer-events-none z-0" />
 
-      {/* Header */}
+      {}
       <div className="text-center mb-16 relative z-10 flex flex-col items-center">
         <p className="text-emerald-400/80 font-medium tracking-[0.2em] text-[10px] md:text-xs uppercase mb-3">The Collective</p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight">
@@ -125,13 +125,13 @@ export default function SquadCarouselSection() {
         </h2>
       </div>
 
-      {/* Carousel Container - NEW: Added perspective for 3D effect */}
+      {}
       <div 
         className="relative w-full max-w-[1000px] mx-auto h-[320px] sm:h-[380px] flex justify-center mt-4 z-10"
-        style={{ perspective: "1200px" }} // This enables the 3D depth illusion
+        style={{ perspective: "1200px" }} 
       >
         
-        {/* Navigation Arrows */}
+        {}
         <div className="absolute top-[40%] sm:top-[35%] left-1/2 -translate-x-1/2 w-full max-w-[360px] sm:max-w-[440px] flex justify-between px-4 z-40 pointer-events-none">
           <button 
             onClick={handlePrev}
@@ -149,7 +149,7 @@ export default function SquadCarouselSection() {
           </button>
         </div>
 
-        {/* Image Cards */}
+        {}
         {SQUADS_DATA.map((squad, index) => {
           const styles = getCardStyles(index);
           const isActive = index === currentIndex;
@@ -165,7 +165,7 @@ export default function SquadCarouselSection() {
                 width: "280px",
                 height: "280px",
                 boxShadow: isActive ? "0 0 60px rgba(16,185,129,0.08), 0 20px 40px rgba(0,0,0,0.8)" : "none",
-                transformStyle: "preserve-3d" // Preserves 3D children if needed
+                transformStyle: "preserve-3d" 
               }}
               onClick={() => {
                 if (index !== currentIndex) setCurrentIndex(index);
@@ -189,7 +189,7 @@ export default function SquadCarouselSection() {
         })}
       </div>
 
-      {/* Content Area */}
+      {}
       <div className="relative w-full max-w-[500px] mx-auto text-center mt-8 px-6 z-20 min-h-[180px]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -200,24 +200,24 @@ export default function SquadCarouselSection() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            {/* Premium Members Badge */}
+            {}
             <div className="inline-flex px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-5 backdrop-blur-md">
               <span className="text-emerald-300 font-medium tracking-widest uppercase text-[9px] sm:text-[10px]">
                 {SQUADS_DATA[currentIndex].members}
               </span>
             </div>
 
-            {/* Scaled-down Elegant Title */}
+            {}
             <h3 className="text-2xl sm:text-3xl font-light text-white mb-3 tracking-tight">
               {SQUADS_DATA[currentIndex].name}
             </h3>
 
-            {/* Refined Description */}
+            {}
             <p className="text-neutral-400 text-[13px] sm:text-sm leading-relaxed mb-6 font-light max-w-[420px]">
               {SQUADS_DATA[currentIndex].description}
             </p>
 
-            {/* Premium Call to Action */}
+            {}
             <button className="cursor-pointer group flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
               {SQUADS_DATA[currentIndex].cta}
               <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors">

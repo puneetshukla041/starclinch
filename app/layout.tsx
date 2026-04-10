@@ -23,17 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* 1. Added bg-[#0A0A0B] and text-white to the body.
-        Now your ENTIRE website has the premium dark background.
-      */}
+      {}
       <body className={`${inter.className} bg-[#0A0A0B] text-white antialiased`}>
         
-        {/* 2. The REAL Top Loader.
-          It will show a sleek rose/orange gradient bar at the top 
-          whenever a user clicks a link and a new page is loading.
-        */}
+        {}
         <NextTopLoader 
-          color="#f43f5e" // Rose-500 to match your theme
+          color="#f43f5e" 
           initialPosition={0.08} 
           crawlSpeed={200} 
           height={3} 
@@ -44,10 +39,10 @@ export default function RootLayout({
           shadow="0 0 10px #f43f5e,0 0 5px #f43f5e" 
         />
 
-        {/* Your perfectly designed Header sits on top */}
+        {}
         <Header />
 
-        {/* Your Page Content (like the HeroCarousel) renders here */}
+        {}
         {children}
         
       </body>

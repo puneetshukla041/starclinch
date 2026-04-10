@@ -5,7 +5,7 @@ import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 
-// Accurately researched Starclinch marketplace categories
+
 const NAV_LINKS = [
   {
     name: "Book Entertainers",
@@ -40,7 +40,7 @@ const NAV_LINKS = [
   { name: "For Artists", href: "#" },
 ];
 
-// Upgraded to a buttery-smooth Apple-style ease curve
+
 const PREMIUM_EASE = [0.32, 0.72, 0, 1] as [number, number, number, number];
 
 const MOBILE_VARIANTS: { container: Variants; link: Variants } = {
@@ -62,14 +62,14 @@ export default function Header() {
   const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  // Subtle header border and blur on scroll
+  
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is active
+  
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     return () => { document.body.style.overflow = "unset"; };
@@ -81,10 +81,10 @@ export default function Header() {
 
   return (
     <>
-      {/* GLOBAL PURE BLACK BACKGROUND */}
+      {}
       <div className="fixed inset-0 bg-[#000000] -z-50 pointer-events-none" />
 
-      {/* STARCLINCH BRANDED TOP LOADER */}
+      {}
       <motion.div 
         initial={{ width: "0%", opacity: 1 }}
         animate={{ width: "100%", opacity: [1, 1, 0] }}
@@ -92,7 +92,7 @@ export default function Header() {
         className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 z-[9999] origin-left shadow-[0_0_10px_rgba(236,72,153,0.8)]"
       />
 
-      {/* DESKTOP HEADER */}
+      {}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -105,7 +105,7 @@ export default function Header() {
       >
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
           
-          {/* Logo Area (NOW WITH TEXT ALONGSIDE THE IMAGE) */}
+          {}
           <div className="flex-shrink-0 z-[120]">
             <Link href="#" onClick={preventRedirect} className="flex items-center gap-2.5 group">
               <img 
@@ -122,7 +122,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {}
           <nav className="hidden xl:flex items-center gap-x-10 flex-1 justify-center">
             {NAV_LINKS.map((link) => (
               <div 
@@ -148,7 +148,7 @@ export default function Header() {
                   )}
                 </Link>
 
-                {/* Ultra-Minimalist Dropdown */}
+                {}
                 <AnimatePresence>
                   {link.subLinks && hoveredLink === link.name && (
                     <motion.div
@@ -183,7 +183,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
+          {}
           <div className="hidden lg:flex items-center gap-x-6 flex-shrink-0 z-[120]">
             <button onClick={preventRedirect} className="text-neutral-400 hover:text-pink-400 transition-colors">
               <Search size={18} strokeWidth={2} />
@@ -195,7 +195,7 @@ export default function Header() {
             >
               Log In
             </button>
-            {/* BRANDED CALL TO ACTION */}
+            {}
             <button 
               onClick={preventRedirect} 
               className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-6 py-2.5 rounded-lg text-[13px] font-semibold tracking-wide hover:shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:scale-105 active:scale-95 transition-all duration-300"
@@ -204,7 +204,7 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {}
           <div className="xl:hidden flex items-center z-[120]">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
@@ -216,7 +216,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* HIGH-END MOBILE NAVIGATION OVERLAY */}
+      {}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -250,7 +250,7 @@ export default function Header() {
                           }
                         }}
                       >
-                        {/* Premium large typography for mobile */}
+                        {}
                         <span className={`text-2xl md:text-3xl font-light tracking-tight transition-colors duration-300 ${isOpen ? "text-pink-400" : "text-neutral-300 group-hover:text-white"}`}>
                           {link.name}
                         </span>
@@ -261,7 +261,7 @@ export default function Header() {
                         )}
                       </motion.div>
                       
-                      {/* Smooth Mobile Submenu */}
+                      {}
                       <AnimatePresence>
                         {link.subLinks && isOpen && (
                           <motion.div
@@ -297,7 +297,7 @@ export default function Header() {
                 })}
               </div>
 
-              {/* Minimalist Mobile Footer Actions */}
+              {}
               <motion.div 
                 variants={MOBILE_VARIANTS.link}
                 className="mt-auto pt-10 flex flex-col gap-3"
