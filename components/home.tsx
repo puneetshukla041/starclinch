@@ -86,8 +86,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    // UPDATED: Changed bg-[#0A0A0B] to bg-[#050505] to match the gradient's ending color perfectly
-    <div className="min-h-[100svh] bg-[#050505] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-rose-500/30 w-full">
+    <div className="h-[100svh] bg-[#050505] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-rose-500/30 w-full">
       
       {/* Cinematic Background Gradient */}
       <motion.div 
@@ -104,12 +103,13 @@ export default function HeroCarousel() {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
-      {/* Main Container */}
-      <div className="container mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-0 flex flex-col md:flex-row items-center justify-between w-full relative z-10 gap-12 sm:gap-16 md:gap-4 lg:gap-8">
+      {/* Main Container - Adjusted gaps and padding for mobile */}
+      <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-6 md:py-0 flex flex-col md:flex-row items-center justify-center md:justify-between w-full h-full relative z-10 gap-4 sm:gap-8 md:gap-4 lg:gap-8">
         
         {/* Left Side: Curved Text Animation */}
         <div className="w-full md:w-1/3 flex justify-center md:justify-start order-2 md:order-1 z-50 pointer-events-none">
-          <div className="relative w-full h-[80px] sm:h-[120px] md:h-[200px] flex items-center justify-center md:justify-start">
+          {/* Reduced height on mobile to prevent pushing content down */}
+          <div className="relative w-full h-[50px] sm:h-[80px] md:h-[200px] flex items-center justify-center md:justify-start">
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.h1
                 key={normalizedIndex}
@@ -119,7 +119,7 @@ export default function HeroCarousel() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute left-0 text-[13vw] sm:text-[10vw] md:text-7xl lg:text-[5.5rem] xl:text-[7rem] font-medium tracking-tighter text-gray-100 whitespace-nowrap leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] origin-left"
+                className="absolute left-0 text-[11vw] sm:text-[10vw] md:text-7xl lg:text-[5.5rem] xl:text-[7rem] font-medium tracking-tighter text-gray-100 whitespace-nowrap leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] origin-left"
               >
                 {categories[normalizedIndex].title}
               </motion.h1>
@@ -132,10 +132,10 @@ export default function HeroCarousel() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center flex-shrink-0 order-1 md:order-2 z-10 w-full md:w-auto"
+          className="flex flex-col items-center flex-shrink-0 order-1 md:order-2 z-10 w-full md:w-auto mt-2 md:mt-0"
         >
-          {/* Circle Container */}
-          <div className="relative aspect-square w-[70vw] sm:w-[55vw] md:w-[42vw] lg:w-[32vw] max-w-[300px] sm:max-w-[380px] lg:max-w-[460px]">
+          {/* Circle Container - slightly scaled down on mobile */}
+          <div className="relative aspect-square w-[55vw] sm:w-[45vw] md:w-[42vw] lg:w-[32vw] max-w-[240px] sm:max-w-[320px] lg:max-w-[460px]">
             {/* Dynamic Pulsating Halo */}
             <motion.div
               animate={{ 
@@ -211,7 +211,7 @@ export default function HeroCarousel() {
                     priority
                     draggable={false} 
                     className="object-cover transition-transform duration-[3000ms] hover:scale-105"
-                    sizes="(max-width: 768px) 300px, (max-width: 1024px) 380px, 460px"
+                    sizes="(max-width: 768px) 240px, (max-width: 1024px) 380px, 460px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
@@ -219,8 +219,8 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* Professional Editorial Description text placed safely outside the circle */}
-          <div className="h-10 mt-8 sm:mt-12 flex items-center justify-center w-full relative z-20">
+          {/* Reduced margin top to fit mobile viewport */}
+          <div className="h-6 mt-4 sm:mt-8 flex items-center justify-center w-full relative z-20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={normalizedIndex}
@@ -228,10 +228,10 @@ export default function HeroCarousel() {
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 exit={{ opacity: 0, filter: "blur(4px)", y: -10 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="flex items-center space-x-3 sm:space-x-4"
+                className="flex items-center space-x-2 sm:space-x-4"
               >
                 <div className="w-4 sm:w-8 h-[1px] bg-gradient-to-r from-transparent to-rose-500/60" />
-                <p className="text-rose-100/70 font-medium tracking-[0.15em] uppercase text-[10px] sm:text-xs whitespace-nowrap">
+                <p className="text-rose-100/70 font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase text-[9px] sm:text-xs whitespace-nowrap">
                   {categories[normalizedIndex].description}
                 </p>
                 <div className="w-4 sm:w-8 h-[1px] bg-gradient-to-l from-transparent to-rose-500/60" />
@@ -245,9 +245,10 @@ export default function HeroCarousel() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-          className="w-full md:w-1/3 flex flex-col items-center md:items-end text-center md:text-right space-y-6 sm:space-y-8 order-3 z-50 mt-4 md:mt-0"
+          className="w-full md:w-1/3 flex flex-col items-center md:items-end text-center md:text-right space-y-3 sm:space-y-6 order-3 z-50 mt-2 md:mt-0"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-400 leading-tight">
+          {/* Scaled down text on mobile */}
+          <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-light text-gray-400 leading-tight">
             Choose <br className="hidden md:block" />
             from <span className="font-semibold text-white">100+</span> <br className="hidden md:block" />
             Categories
@@ -256,12 +257,12 @@ export default function HeroCarousel() {
           <MagneticWrapper>
             <button 
               onClick={() => paginate(1)}
-              className="cursor-pointer group relative flex items-center space-x-3 sm:space-x-5 text-xs sm:text-sm md:text-base font-medium text-white bg-neutral-900/60 hover:bg-neutral-800/80 border border-white/10 px-6 sm:px-8 py-3 sm:py-4 rounded-full backdrop-blur-xl transition-all duration-300 overflow-hidden active:scale-95 shadow-xl"
+              className="cursor-pointer group relative flex items-center space-x-3 md:space-x-5 text-[11px] sm:text-sm md:text-base font-medium text-white bg-neutral-900/60 hover:bg-neutral-800/80 border border-white/10 px-5 sm:px-6 md:px-8 py-2.5 md:py-4 rounded-full backdrop-blur-xl transition-all duration-300 overflow-hidden active:scale-95 shadow-xl"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
               <span className="relative z-10 tracking-wider whitespace-nowrap text-rose-50 group-hover:text-white transition-colors">Explore all categories</span>
-              <span className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(225,29,72,0)] group-hover:shadow-[0_0_25px_rgba(225,29,72,0.5)]">
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-0.5 group-hover:-rotate-45 transition-transform duration-300" />
+              <span className="relative z-10 flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(225,29,72,0)] group-hover:shadow-[0_0_25px_rgba(225,29,72,0.5)]">
+                <ArrowRight className="w-3.5 h-3.5 md:w-5 md:h-5 transform group-hover:translate-x-0.5 group-hover:-rotate-45 transition-transform duration-300" />
               </span>
             </button>
           </MagneticWrapper>

@@ -35,7 +35,7 @@ export default function TeamSection() {
         className={`relative min-h-screen bg-[#09070c] flex items-center justify-center overflow-hidden ${inter.className} py-20`}
       >
         {/* Background Shapes */}
-        {/* Only the bottom-left glow is kept. Top-right glow is removed for seamless blending. */}
+        {/* Removed the top-right glow for seamless blending, keeping only the bottom-left. */}
         <div className="absolute -bottom-[20%] -left-[10%] w-[90vw] h-[90vw] max-w-[800px] max-h-[800px] rounded-full bg-gradient-to-tr from-[#160811] to-[#311326] pointer-events-none blur-[80px] md:blur-[120px]" />
 
         {/* Main Glassmorphism Container */}
@@ -84,7 +84,7 @@ export default function TeamSection() {
               from you !
             </p>
 
-            {/* Call to Action Button (Added group/btn for specific hover targeting) */}
+            {/* Call to Action Button */}
             <button className="group/btn mt-8 md:mt-10 px-6 py-3 md:px-8 md:py-3 rounded-full bg-gradient-to-r from-[#de4b6f] to-[#be2e57] text-white text-[14px] md:text-[15px] font-medium hover:scale-105 hover:shadow-[0_0_25px_rgba(222,75,111,0.5)] transition-all duration-300 z-20 flex items-center gap-2">
               Join our team
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover/btn:translate-x-1.5">
