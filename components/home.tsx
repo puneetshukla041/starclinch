@@ -48,18 +48,14 @@ export default function HeroCarousel() {
     setPage([page + newDirection, newDirection]);
   };
 
-  // --- NEW: Auto-rotation every 2.5 seconds ---
   useEffect(() => {
     const timer = setInterval(() => {
-      paginate(1); // Move forward by 1
+      paginate(1);
     }, 3000);
 
-    // Clear the interval when the component unmounts or when the page changes manually
     return () => clearInterval(timer);
   }, [page]);
-  // -------------------------------------------
 
-  // Custom variants for the curved text wipe
   const textVariants = {
     enter: (dir: number) => ({
       y: dir > 0 ? 120 : -120,
@@ -90,7 +86,8 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className="min-h-[100svh] bg-[#0A0A0B] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-rose-500/30 w-full">
+    // UPDATED: Changed bg-[#0A0A0B] to bg-[#050505] to match the gradient's ending color perfectly
+    <div className="min-h-[100svh] bg-[#050505] text-white flex items-center justify-center overflow-hidden font-sans relative selection:bg-rose-500/30 w-full">
       
       {/* Cinematic Background Gradient */}
       <motion.div 

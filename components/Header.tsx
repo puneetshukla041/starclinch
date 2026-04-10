@@ -116,7 +116,7 @@ export default function Header() {
                   e.currentTarget.style.display = 'none';
                 }}
               />
-<span className="text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-white-950 bg-clip-text text-transparent">
+<span className="text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-white-150 bg-clip-text text-transparent">
   Starclinch
 </span>
             </Link>
