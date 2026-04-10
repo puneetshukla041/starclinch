@@ -39,6 +39,15 @@ export default function TrendingSection() {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
+      {/* UPDATED: Subtle Fading White Framing Arc - Adjusted position and mask */}
+      <div 
+        className="absolute top-[10%] sm:top-[5%] left-1/2 -translate-x-1/2 w-[160vw] md:w-[140vw] lg:w-[1600px] aspect-square rounded-full border-[1px] border-white/30 pointer-events-none z-0"
+        style={{
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 35%)",
+          maskImage: "linear-gradient(to bottom, black 0%, transparent 35%)",
+        }}
+      />
+
       <div className="w-full max-w-[1200px] mx-auto px-5 sm:px-6 relative z-10 flex flex-col items-center">
         
         {/* UI/UX Contextual Header */}
@@ -59,7 +68,6 @@ export default function TrendingSection() {
             <button 
               key={tab}
               onClick={() => setActiveTab(tab)}
-              // Added cursor-pointer explicitly here
               className={`relative cursor-pointer px-8 py-2.5 sm:py-3 rounded-full font-medium text-xs sm:text-sm transition-colors duration-300 z-10 ${
                 activeTab === tab ? "text-black" : "text-neutral-400 hover:text-white"
               }`}
@@ -92,7 +100,6 @@ export default function TrendingSection() {
                 key={artist.id} 
                 whileHover="hover"
                 initial="initial"
-                // Cards already had cursor-pointer, kept it here
                 className={`relative aspect-square w-full overflow-hidden bg-[#0A0A0C] border shadow-2xl group cursor-pointer ${
                   isCircle ? "rounded-full border-white/10" : "rounded-3xl sm:rounded-[2rem] border-white/5"
                 }`}
@@ -157,7 +164,6 @@ export default function TrendingSection() {
             <button
               key={pageIdx}
               onClick={() => setActivePage(pageIdx)}
-              // Added cursor-pointer explicitly here
               className="relative group p-2 cursor-pointer"
               aria-label={`Go to page ${pageIdx + 1}`}
             >
