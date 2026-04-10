@@ -1,48 +1,145 @@
-# Starclinch – Premium Talent Marketplace (Frontend Architecture)
+# Starclinch – Premium Talent Marketplace
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.x-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.x-black?style=flat&logo=framer)](https://www.framer.com/motion/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.3-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.x-black?style=flat&logo=framer)](https://www.framer.com/motion/)
 
-A high-end, highly interactive frontend redesign for Starclinch, India's largest premium marketplace for booking live entertainers and celebrities. 
-
-This project focuses on delivering an ultra-minimalist, editorial dark-mode aesthetic. It heavily leverages physics-based animations, custom mathematical SVG pathing, and native scroll-snapping to achieve a buttery-smooth 60fps experience that rivals native iOS applications.
-
-**[View Live Demo](#) | [View Portfolio](#)** *(Replace with your actual links)*
+A premium frontend for Starclinch built with Next.js, TypeScript, Tailwind CSS, and Framer Motion. The application is structured for maintainability and visual polish, with reusable section components, a centralized component barrel, and a modern dark UI.
 
 ---
 
-## Key Features & Engineering Highlights
+## Table of Contents
 
-* **Physics-Based UI (Magnetic Elements):** Implemented custom React hooks utilizing `getBoundingClientRect` to calculate cursor proximity, creating premium magnetic button hover states that naturally pull toward the user's mouse.
-* **Curved Typography Engine:** Engineered a custom layout algorithm using `Framer Motion` to render an overlapping, slot-machine-style text wheel. Inactive text seamlessly orbits and scales down along a hidden circular track.
-* **Fluid Native Carousels:** Replaced heavy, JavaScript-blocking slider libraries with native CSS `snap-x snap-mandatory` scrolling. State is synchronized via scroll event listeners to dynamically update the active pagination indicators without sacrificing scroll performance.
-* **Custom SVG Animation:** Built a mathematically precise SVG gradient swoosh (`<path>`) that rotates infinitely and dynamically tracks the user's active carousel index.
-* **Glassmorphism & App-Like Navigation:** Designed a highly responsive, mobile-first navigation overlay utilizing `backdrop-blur` and staggered stagger-children animations for a highly polished reveal.
+1. [Overview](#overview)
+2. [Architecture](#architecture)
+3. [Features](#features)
+4. [Tech Stack](#tech-stack)
+5. [Folder Structure](#folder-structure)
+6. [Getting Started](#getting-started)
+7. [Run Commands](#run-commands)
+8. [Contribution](#contribution)
+
+---
+
+## Overview
+
+This repository contains a frontend implementation of a premium talent marketplace experience. The current focus is on homepage presentation and polished UI interactions, using React components to compose hero, trending artists, squad showcases, recent shows, and team sections.
+
+---
+
+## Architecture
+
+The app follows a clean, component-driven architecture:
+
+* `app/layout.tsx` defines the global layout, default metadata, typography, and shared UI wrappers.
+* `app/page.tsx` assembles the home page from dedicated section components.
+* `components/` contains shared UI primitives and a barrel file (`components/index.ts`) for centralized imports.
+* `components/sections/` contains the feature sections that power each homepage segment.
+
+This structure makes it easy to extend the app with new pages or reusable sections while keeping high-level routing and layout concerns separate.
+
+---
+
+## Features
+
+* Responsive dark-theme homepage with premium motion design.
+* Animated header with sticky behavior, mobile menu, and dropdown navigation items.
+* Hero section with rotating text, animated backgrounds, and interactive image transitions.
+* Artist grid section with modern card styles and responsive hover states.
+* Squad carousel and feature cards for content-rich storytelling.
+* Recent shows showcase with sliding carousel interactions.
+* Team call-to-action section with glassmorphism styling.
 
 ---
 
 ## Tech Stack
 
-* **Framework:** [Next.js (App Router)](https://nextjs.org/)
-* **Language:** [TypeScript](https://www.typescriptlang.org/)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Animation:** [Framer Motion](https://www.framer.com/motion/)
-* **Icons:** [Lucide React](https://lucide.dev/)
-* **Routing/UX:** `nextjs-toploader` for seamless page transitions
+* Next.js 16.2.3
+* React 19.2.4
+* TypeScript 5
+* Tailwind CSS 4
+* Framer Motion 12
+* Lucide React
+* nextjs-toploader
 
 ---
 
-## Project Structure
+## Folder Structure
 
 ```text
+starclinch/
 ├── app/
-│   ├── layout.tsx         # Global layout (Dark theme & TopLoader setup)
-│   └── page.tsx           # Main entry point mapping the components
+│   ├── layout.tsx
+│   └── page.tsx
 ├── components/
-│   ├── Header.tsx         # Global navigation with mobile overlay & animations
-│   ├── HeroCarousel.tsx   # Complex hero section with curved text & SVG tracking
-│   └── TrendingSection.tsx# Native smooth-scroll carousel with custom pagination
-├── public/                # Static assets (Artist images, SVG logos)
-└── tailwind.config.ts     # Custom theme extensions and keyframes
+│   ├── Header.tsx
+│   ├── index.ts
+│   └── sections/
+│       ├── FeaturedSquadsSection.tsx
+│       ├── HeroSection.tsx
+│       ├── RecentShowsSection.tsx
+│       ├── SquadCarouselSection.tsx
+│       ├── TeamSection.tsx
+│       └── TrendingSection.tsx
+├── lib/
+│   └── SmoothScroll.ts
+├── public/
+│   ├── home/
+│   ├── perform/
+│   └── trending/
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── postcss.config.mjs
+└── eslint.config.mjs
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* Node.js 20+ recommended
+* pnpm, npm, or yarn installed
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+Open the app at `http://localhost:3000`
+
+---
+
+## Run Commands
+
+* `npm run dev` — start local development server
+* `npm run build` — build the production app
+* `npm run start` — run the production build locally
+* `npm run lint` — run ESLint
+
+---
+
+## Contribution
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Open a pull request with a clear description.
+4. Keep component logic isolated and reuse the section barrel when possible.
+
+---
+
+## Notes
+
+* The project currently focuses on frontend experience and interface polish.
+* Replace placeholder links in this README with actual demo or portfolio URLs.
+* The `components/index.ts` barrel file simplifies imports across the application.
