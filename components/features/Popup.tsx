@@ -149,7 +149,7 @@ export default function BookingIsland() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] flex flex-col items-center">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[80] flex flex-col items-center">
       <motion.div
         layout
         onClick={() => setActive(active === "idle" ? "expanded" : "idle")}
