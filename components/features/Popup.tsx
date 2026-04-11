@@ -26,8 +26,11 @@ const FEATURED_ARTISTS = [
 ];
 
 // --- Fluid Animation Curves ---
-const SPRING_CONFIG = { type: "spring", stiffness: 400, damping: 32, mass: 0.8 };
-const EASE_CURVE = [0.16, 1, 0.3, 1];
+// FIXED: Added "as const" so TypeScript knows "spring" is the exact string literal, not a generic string.
+const SPRING_CONFIG = { type: "spring", stiffness: 400, damping: 32, mass: 0.8 } as const;
+
+// Explicitly typing this as a tuple so TypeScript and Framer Motion are happy
+const EASE_CURVE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 // --- Content Components ---
 
