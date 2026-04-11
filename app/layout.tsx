@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
 import { Header } from "@/components";
-import Timer from "@/components/features/CountdownTimer";
+import Timer from "@/components/features/Popup";
 
 const inter = Inter({ subsets: ["latin"] });
 
