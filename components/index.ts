@@ -1,4 +1,5 @@
-export { default as Header } from "./Header";
+export { default as Header } from "./layout/Header";
+export { Popup } from "./features";
 export { default as HeroSection } from "./sections/HeroSection";
 export { default as TrendingSection } from "./sections/TrendingSection";
 export { default as FeaturedSquadsSection } from "./sections/FeaturedSquadsSection";
