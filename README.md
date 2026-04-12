@@ -41,6 +41,31 @@ This structure makes it easy to extend the app with new pages or reusable sectio
 
 ---
 
+## App Flow
+
+```mermaid
+flowchart TD
+  A[app/layout.tsx] --> B[Header]
+  A --> C[Popup]
+  A --> D[app/page.tsx]
+  D --> E[HeroSection]
+  D --> F[TrendingSection]
+  D --> G[FeaturedSquadsSection]
+  D --> H[SquadCarouselSection]
+  D --> I[RecentShowsSection]
+  D --> J[TeamSection]
+  B --> K[components/layout/Header.tsx]
+  C --> L[components/features/Popup.tsx]
+  E --> M[components/sections/HeroSection.tsx]
+  F --> N[components/sections/TrendingSection.tsx]
+  G --> O[components/sections/FeaturedSquadsSection.tsx]
+  H --> P[components/sections/SquadCarouselSection.tsx]
+  I --> Q[components/sections/RecentShowsSection.tsx]
+  J --> R[components/sections/TeamSection.tsx]
+```
+
+---
+
 ## Features
 
 * Responsive dark-theme homepage with premium motion design.
@@ -73,15 +98,19 @@ starclinch/
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
-│   ├── Header.tsx
-│   ├── index.ts
-│   └── sections/
-│       ├── FeaturedSquadsSection.tsx
-│       ├── HeroSection.tsx
-│       ├── RecentShowsSection.tsx
-│       ├── SquadCarouselSection.tsx
-│       ├── TeamSection.tsx
-│       └── TrendingSection.tsx
+│   ├── layout/
+│   │   └── Header.tsx
+│   ├── features/
+│   │   ├── Popup.tsx
+│   │   └── index.ts
+│   ├── sections/
+│   │   ├── FeaturedSquadsSection.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── RecentShowsSection.tsx
+│   │   ├── SquadCarouselSection.tsx
+│   │   ├── TeamSection.tsx
+│   │   └── TrendingSection.tsx
+│   └── index.ts
 ├── lib/
 │   └── SmoothScroll.ts
 ├── public/
