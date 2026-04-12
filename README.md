@@ -5,7 +5,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.x-black?style=flat&logo=framer)](https://www.framer.com/motion/)
 
-A premium frontend for Starclinch built with Next.js, TypeScript, Tailwind CSS, and Framer Motion. The application is structured for maintainability and visual polish, with reusable section components, a centralized component barrel, and a modern dark UI.
+A polished frontend experience for a premium talent marketplace. Built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
+
+This repository is designed for maintainability, reusable page sections, and premium UI polish.
 
 ---
 
@@ -13,31 +15,36 @@ A premium frontend for Starclinch built with Next.js, TypeScript, Tailwind CSS, 
 
 1. [Overview](#overview)
 2. [Architecture](#architecture)
-3. [Features](#features)
-4. [Tech Stack](#tech-stack)
-5. [Folder Structure](#folder-structure)
-6. [Getting Started](#getting-started)
-7. [Run Commands](#run-commands)
-8. [Contribution](#contribution)
+3. [App Flow](#app-flow)
+4. [Features](#features)
+5. [Tech Stack](#tech-stack)
+6. [Folder Structure](#folder-structure)
+7. [Getting Started](#getting-started)
+8. [Scripts](#scripts)
+9. [Contribution](#contribution)
+10. [Notes](#notes)
 
 ---
 
 ## Overview
 
-This repository contains a frontend implementation of a premium talent marketplace experience. The current focus is on homepage presentation and polished UI interactions, using React components to compose hero, trending artists, squad showcases, recent shows, and team sections.
+This repository contains the frontend implementation of a premium talent marketplace landing experience.
+The app focuses on modern section composition, responsive interactions, and polished motion design.
 
 ---
 
 ## Architecture
 
-The app follows a clean, component-driven architecture:
+The app is organized to separate global layout, reusable features, and homepage sections:
 
-* `app/layout.tsx` defines the global layout, default metadata, typography, and shared UI wrappers.
-* `app/page.tsx` assembles the home page from dedicated section components.
-* `components/` contains shared UI primitives and a barrel file (`components/index.ts`) for centralized imports.
-* `components/sections/` contains the feature sections that power each homepage segment.
+* `app/layout.tsx` manages global layout, metadata, fonts, and UI wrappers.
+* `app/page.tsx` composes the homepage from dedicated section components.
+* `components/layout/` contains layout-specific shared UI such as the header.
+* `components/features/` contains reusable interactive feature components.
+* `components/sections/` contains homepage section components.
+* `components/index.ts` provides a centralized component barrel for cleaner imports.
 
-This structure makes it easy to extend the app with new pages or reusable sections while keeping high-level routing and layout concerns separate.
+This structure enables a scalable and maintainable frontend architecture.
 
 ---
 
