@@ -51,36 +51,57 @@ This structure enables a scalable and maintainable frontend architecture.
 ## App Flow
 
 ```mermaid
-flowchart TD
-  A[app/layout.tsx] --> B[Header]
-  A --> C[Popup]
-  A --> D[app/page.tsx]
-  D --> E[HeroSection]
-  D --> F[TrendingSection]
-  D --> G[FeaturedSquadsSection]
-  D --> H[SquadCarouselSection]
-  D --> I[RecentShowsSection]
-  D --> J[TeamSection]
-  B --> K[components/layout/Header.tsx]
-  C --> L[components/features/Popup.tsx]
-  E --> M[components/sections/HeroSection.tsx]
-  F --> N[components/sections/TrendingSection.tsx]
-  G --> O[components/sections/FeaturedSquadsSection.tsx]
-  H --> P[components/sections/SquadCarouselSection.tsx]
-  I --> Q[components/sections/RecentShowsSection.tsx]
-  J --> R[components/sections/TeamSection.tsx]
+flowchart TB
+  classDef layout fill:#111827,stroke:#9ca3af,color:#f8fafc;
+  classDef page fill:#0f172a,stroke:#60a5fa,color:#e2e8f0;
+  classDef component fill:#1f2937,stroke:#a5b4fc,color:#f8fafc;
+
+  subgraph app[Application]
+    L[app/layout.tsx]:::layout
+    H[Header]:::component
+    P[Popup]:::component
+    M[app/page.tsx]:::page
+  end
+
+  subgraph sections[Homepage Sections]
+    S1[HeroSection]:::component
+    S2[TrendingSection]:::component
+    S3[FeaturedSquadsSection]:::component
+    S4[SquadCarouselSection]:::component
+    S5[RecentShowsSection]:::component
+    S6[TeamSection]:::component
+  end
+
+  L --> H
+  L --> P
+  L --> M
+  M --> S1
+  M --> S2
+  M --> S3
+  M --> S4
+  M --> S5
+  M --> S6
+
+  H --> HL[components/layout/Header.tsx]
+  P --> PF[components/features/Popup.tsx]
+  S1 --> S1F[components/sections/HeroSection.tsx]
+  S2 --> S2F[components/sections/TrendingSection.tsx]
+  S3 --> S3F[components/sections/FeaturedSquadsSection.tsx]
+  S4 --> S4F[components/sections/SquadCarouselSection.tsx]
+  S5 --> S5F[components/sections/RecentShowsSection.tsx]
+  S6 --> S6F[components/sections/TeamSection.tsx]
 ```
 
 ---
 
 ## Features
 
-* Responsive dark-theme homepage with premium motion design.
-* Animated header with sticky behavior, mobile menu, and dropdown navigation items.
-* Hero section with rotating text, animated backgrounds, and interactive image transitions.
-* Artist grid section with modern card styles and responsive hover states.
-* Squad carousel and feature cards for content-rich storytelling.
-* Recent shows showcase with sliding carousel interactions.
+* Responsive premium homepage with a polished dark interface.
+* Animated sticky header with desktop dropdowns and mobile menu.
+* Hero section with motion-driven typography and image transitions.
+* Trending artists gallery with elegant hover interactions.
+* Featured squad and storytelling carousel sections.
+* Recent shows slider with smooth transitions.
 * Team call-to-action section with glassmorphism styling.
 
 ---
@@ -137,8 +158,8 @@ starclinch/
 
 ### Prerequisites
 
-* Node.js 20+ recommended
-* pnpm, npm, or yarn installed
+* Node.js 20+
+* npm, yarn, or pnpm installed
 
 ### Install dependencies
 
@@ -146,36 +167,36 @@ starclinch/
 npm install
 ```
 
-### Start development server
+### Run locally
 
 ```bash
 npm run dev
 ```
 
-Open the app at `http://localhost:3000`
+Open the app at `http://localhost:3000`.
 
 ---
 
-## Run Commands
+## Scripts
 
-* `npm run dev` — start local development server
+* `npm run dev` — start the development server
 * `npm run build` — build the production app
 * `npm run start` — run the production build locally
-* `npm run lint` — run ESLint
+* `npm run lint` — run the linter
 
 ---
 
 ## Contribution
 
 1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Open a pull request with a clear description.
-4. Keep component logic isolated and reuse the section barrel when possible.
+2. Create a feature branch.
+3. Keep changes isolated to components or page sections.
+4. Submit a pull request with a clear summary.
 
 ---
 
 ## Notes
 
-* The project currently focuses on frontend experience and interface polish.
-* Replace placeholder links in this README with actual demo or portfolio URLs.
-* The `components/index.ts` barrel file simplifies imports across the application.
+* This project is focused on frontend polish, animation, and responsive interaction.
+* Use `components/index.ts` for centralized component exports.
+* Replace placeholder links with actual deployment or demo URLs when available.
